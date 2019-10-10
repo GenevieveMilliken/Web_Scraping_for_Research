@@ -1,4 +1,4 @@
-# Web_Scraping_for_Research
+# Web Scraping for Research
 
 Using web scraping for research purposes is one tool that can be added to the scholarly workflow. This repository contains Python scripts that use BeautifulSoup to scrape a variety of open access journals and subject repositories, including: 
 
@@ -15,5 +15,7 @@ Using web scraping for research purposes is one tool that can be added to the sc
 - [In the Library with the Lead Pipe](http://www.inthelibrarywiththeleadpipe.org/)
 - [Culture Machine](https://culturemachine.co/)
 
-Please note that specific search terms are sometimes used to build a URL for some journals so outputs are specific and limited in quantity and serve as proof of concept. Search terms that are specific to your research question need to be included in building the main URL, which can be derived from using the advance search function and the resulting URL. When possible, JSON outputs of metadata and/or full text are stored in each directory. For journals that host articles as PDFs, the secondary script to download those PDFs locally must be run. In these cases, running the first script results in a JSON output of article metadata (i.e. title, author, url, DOI, date, and abstract [if available]), which may be helpful for analysis of titles and abstracts. The JSON output of the first script is needed for the second script to function, thus must remain in the same directory. 
+Please note that specific search terms are sometimes used to build a URL for some journals so that outputs are specific and limited in quantity and serve as proof of concept. Search terms that are specific to your research question need to be included in building the main URL, which can be derived from using the advance search function and the resulting URL. 
+
+When possible, JSON outputs of metadata and/or full text are stored in each directory. For journals that host articles as PDFs, secondary scripts to download those PDFs are included. In these cases, running the first script results in a JSON output of article metadata and the second script uses that JSON output to download the PDFs.
 
