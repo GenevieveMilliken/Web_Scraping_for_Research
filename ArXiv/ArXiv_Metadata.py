@@ -5,6 +5,8 @@
 from bs4 import BeautifulSoup
 import requests
 import json
+import urllib3
+urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
 all_my_data = []
 
@@ -13,7 +15,7 @@ for pages in range (0,5):
 
 	headers = {
     'User-Agent': 'Chrome/74.0',
-    'From': 'my email address' 
+    'From': 'YOUR_EMAIL_ADDRESS' 
 }
 
 	results_page = requests.get(url, headers=headers)
