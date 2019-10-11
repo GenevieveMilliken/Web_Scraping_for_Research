@@ -1,5 +1,7 @@
 # Web Scraping for Research
 
+***This is a WIP repository; scripts will be added as they are completed*** 
+
 Using web scraping for research purposes is one tool that can be added to the scholarly workflow. This repository contains Python scripts that use BeautifulSoup to scrape a variety of open access journals and subject repositories, including: 
 
 - [ArXiv](https://arxiv.org/)
