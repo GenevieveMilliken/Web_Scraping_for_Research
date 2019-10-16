@@ -1,24 +1,19 @@
-# This script captures the following content from Code4Lib:
-# article URL, title, author and abstract
-# Issue URL, number, and date
+# captures the following: 
+# article URL, title, author, abstract, issue URL, issue number, and date
 
-# import modules
 from bs4 import BeautifulSoup
 import requests
 import json
+import time
 
-# create empty list
 all_my_data = []
 
-# assign issue archive URL as variable
 url = 'https://journal.code4lib.org/issues'
 
-# request URL and make soup object
 archives = requests.get(url)
 archives_html = archives.text 
 soup = BeautifulSoup(archives_html, 'html.parser')
 
-# locate HTML section containing each article within each issue
 articles = soup.find_all('h3', attrs = {'class': 'articletitle'})
 
 my_data = {
@@ -31,38 +26,30 @@ my_data = {
 		"issue_date": None,
 	}
 
-
-
-# create for loop to loop through each article
-# set up dictionary for content categories 
 for article in articles: 
 
+	# print('--------------------')
 
-	print('-----------------------')
-
-	# get Article URL
+	# get article URL
 	article_link = article.find('a')
 	article_link_href = article_link['href']
 	my_data['article_URL'] = article_link_href
-	
 
 	# get article title
 	article_title = article_link.text
 	my_data['title'] = article_title 
-	
 
 	# turn each article into a soup item
 	article_item = requests.get(article_link_href)
 	article_html = article_item.text 
 	article_soup = BeautifulSoup(article_html, 'html.parser')
-	
 
 	# get article abstract
 	abstract = article_soup.find('div', attrs= {'class': 'abstract'})
 	abstract = abstract.text
 	my_data['abstract'] = abstract
 
-	# get author(s) by creating a for loop
+	# get single and multi-authors with for loop
 	authors = article_soup.find_all('meta', attrs={'name': 'citation_author'})
 
 	author_list = []
@@ -88,17 +75,15 @@ for article in articles:
 	issue_date = issue_date['content']
 	my_data['issue_date'] = issue_date
 
-	print(my_data)
+	time.sleep(1)
+
+	# print(my_data)
 	
-		
-	
+	all_my_data.append(my_data)	
 
-
-
-
-	
-
-
+with open('Code4Lib.json', 'w') as file_object:
+	json.dump(all_my_data, file_object, indent=2)
+	print("Code4Lib JSON file is Ready")
 
 	
 	
