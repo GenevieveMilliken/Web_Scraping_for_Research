@@ -5,7 +5,7 @@
 Using web scraping for research purposes is one tool that can be added to the scholarly workflow. This repository contains Python scripts that use BeautifulSoup to scrape a variety of open access journals and subject repositories, including: 
 
 - [ArXiv](https://arxiv.org/)
-- [D-Lib Magazine](http://www.dlib.org/) (The Magazine of Digital Library Research)
+- [D-Lib Magazine](http://www.dlib.org/) (The Magazine of Digital Library Research) ***completed***
 - [Journal of Open Source Software](https://joss.theoj.org/)
 - [Journal of Open Research Software](https://openresearchsoftware.metajnl.com/)
 - [Journal of Statistical Software](https://www.jstatsoft.org/index)
