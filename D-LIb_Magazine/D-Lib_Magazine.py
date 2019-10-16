@@ -16,21 +16,19 @@ articles = soup.find_all("p", attrs = {"class": "archive"})
 
 for article in articles: 
 
-	# my_data = {
-	# 	"article_URL": None,
-	# 	"article_DOI": None,
-	# 	"article_title": None,   
-	# 	"article_text":None, 
-	# }
+	my_data = {
+		"article_URL": None,
+		"article_DOI": None,
+		"article_title": None,   
+		"article_text":None, 
+	}
 
-	print("---------------")
+	# print("---------------")
 
 	article_link = article.find('a')
 	url_slug = article_link['href']
 	abs_url = "http://www.dlib.org/" + url_slug
-	# my_data['article_URL'] = abs_url
-	print(abs_url)
-
+	my_data['article_URL'] = abs_url
 
 	item_request = requests.get(abs_url)
 	item_html = item_request.text
@@ -41,58 +39,33 @@ for article in articles:
 	title_text = title_text.text
 	title_text = title_text.replace("\n", "")
 	title_text = title_text.replace("\r", "")
-	# my_data['article_title'] = title_text
-	print("title_text")
+	my_data['article_title'] = title_text
 	
+	# the HTML div for DOI is inconsistant on D-Lib
+	# if the DOI is empty, it does not necessarily mean none exists
 	try: 
 		DOI = item_soup.find_all("meta", attrs = {"name": "DOI"})
 		DOI = DOI[0]['content']
-		print(DOI)
-		# my_data['article_DOI'] = DOI
+		my_data['article_DOI'] = DOI
 
 	except IndexError:
-  		DOI = "null"
-  		# my_data['article_DOI'] = DOI
-  		print(DOI)
+  		DOI = ""
+  		my_data['article_DOI'] = DOI
 
-	# text = item_soup.text
-	# text = text.replace("\n", "")
-	# text = text.replace("\r", "")
-	# my_data['article_text'] = text
+	text = item_soup.text
+	text = text.replace("\n", "")
+	text = text.replace("\r", "")
+	my_data['article_text'] = text
 
 	time.sleep(1)
 
-	# print(my_data)
+	print(my_data)
 
-# 	all_my_data.append(my_data)
+	all_my_data.append(my_data)
 
-# with open('D-Lib_Magazine.json', 'w') as file_object:
-# 	json.dump(all_my_data, file_object, indent=2)
-# 	print("The JSON file is Ready")
-
-
-
-
-
-
-
-
-		
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+with open('D-Lib_Magazine.json', 'w') as file_object:
+	json.dump(all_my_data, file_object, indent=2)
+	print("The JSON file is Ready")
 
 
 
