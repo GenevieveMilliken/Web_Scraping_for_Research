@@ -9,7 +9,7 @@ Using web scraping for research purposes is one tool that can be added to the sc
 - [Journal of Open Source Software](https://joss.theoj.org/)
 - [Journal of Open Research Software](https://openresearchsoftware.metajnl.com/)
 - [Journal of Statistical Software](https://www.jstatsoft.org/index)
-- [Code4Lib](https://code4lib.org/)
+- [Code4Lib](https://code4lib.org/) ***completed***
 - [Digital Humanities Quarterly](http://www.digitalhumanities.org/dhq/)
 - [Medieval Worlds](https://medieval.vlg.oeaw.ac.at/index.php/medievalworlds)
 - [Southern Spaces](https://southernspaces.org/)
