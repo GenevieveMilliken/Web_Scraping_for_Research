@@ -15,7 +15,6 @@ Using web scraping for research purposes is one tool that can be added to the sc
 - [Southern Spaces](https://southernspaces.org/)
 - [Sign Systems Studies](http://www.sss.ut.ee/index.php/sss) (semiotics)
 - [In the Library with the Lead Pipe](http://www.inthelibrarywiththeleadpipe.org/)
-- [Culture Machine](https://culturemachine.co/)
 
 Please note that specific search terms are sometimes used to build a URL for some journals so that outputs are specific and limited in quantity and serve as proof of concept. Search terms that are specific to your research question need to be included in building the main URL, which can be derived from using the advance search function and the resulting URL. 
 
