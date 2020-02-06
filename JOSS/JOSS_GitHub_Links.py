@@ -6,7 +6,7 @@ import time
 
 all_my_data = []
 
-for pages in range (0,78):
+for pages in range (0,79):
 	url = f"https://joss.theoj.org/papers/published?page={pages*1}"
 
 	results_page = requests.get(url)
@@ -15,16 +15,15 @@ for pages in range (0,78):
 
 	articles = soup.find_all('entry')
 
-	my_data = {
+
+	for article in articles:
+
+		my_data = {
 		"Article_url": None,
 		"Article_title": None,
 		"GitHub_URL": None,
 		
 		}
-
-	for article in articles: 
-
-		time.sleep(5)
 
 		article_links = article.find('link')
 		absolute_url = article_links['href']
@@ -46,8 +45,11 @@ for pages in range (0,78):
 		my_data["GitHub_URL"] = GitHub_link
 		# print(GitHub_link)
 
-	# append data dictionary into list
-	all_my_data.append(my_data)
+		# print(my_data)
+		# print("-------------")
+
+	# 	append data dictionary into list
+		all_my_data.append(my_data)
 # # 	# print(all_my_data)
 
 # write out json
